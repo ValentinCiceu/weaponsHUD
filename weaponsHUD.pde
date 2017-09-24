@@ -9,7 +9,7 @@ void setup() {
    sys=new System(random(width),random(height), 0); 
    go.add(sys);
   }
-  table=new TableFront(0,height-150,0); //adding the frot table
+  table=new TableFront(0,height-150,1); //adding the frot table
   go.add(table);
 }
 
