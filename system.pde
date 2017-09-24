@@ -8,8 +8,8 @@ class System extends GameObjects {
   float choose;
   System(float x, float y, float speed) {
     super(x, y, speed);
-    cspeed=random(0.001, 0.0005);
-    choose=random(0.0005, 0.001);
+    cspeed=random(0.01, 0.0005);
+    choose=random(0.0005, 0.01);
   }
 
   void update() {

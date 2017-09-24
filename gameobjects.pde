@@ -6,7 +6,7 @@ class GameObjects{
  GameObjects(float x, float y, float speed){
   pos=new PVector(x, y); 
   forward=new PVector();
-  this.speed =speed;
+  this.speed = speed;
  }
   
   void update(){
