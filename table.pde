@@ -9,6 +9,7 @@ class TableFront extends GameObjects {
   float goTo;
   PVector newPos;
   float meas;
+  String[] num={"1", "2", "3", "4", "5", "6", "7", "8", "9", "A","B","C","D","E","F","G"};
   TableFront(float x, float y, float speed) {
     super(x, y, speed);
 
@@ -29,7 +30,7 @@ class TableFront extends GameObjects {
 
 
 
-    if (newPos.x>pos.x+(138+161)) {
+    if (newPos.x>pos.x+(138+155)) {
       speed=speed*-1;
     }
     if (newPos.x<pos.x+138) {
@@ -50,6 +51,13 @@ class TableFront extends GameObjects {
     stroke(255);
     for (int i=0; i<16; i++) {
       line(pos.x+(145+(i*10)), pos.y+54, pos.x+(145+(i*10)), pos.y+60);
+      
+    }
+    for(int i=0; i<num.length; i++){
+      stroke(0);
+      fill(0);
+      textSize(8);
+      text(num[i],pos.x +(143+(i*10)),pos.y+66);
     }
     fill(0);
     rect(pos.x+505, pos.y+16, 115, 115); //2

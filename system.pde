@@ -6,6 +6,7 @@ class System extends GameObjects {
   float change=0;
   float cspeed;
   float choose;
+
   System(float x, float y, float speed) {
     super(x, y, speed);
     cspeed=random(0.01, 0.0005);
