@@ -28,9 +28,9 @@ class TableFront extends GameObjects {
 
   void update() {
     newc=lerpColor(c1, c2, meas/100000);
-    newcv=lerpColor(c1,c2,measv/100000);
+    newcv=lerpColor(c1, c2, measv/100000);
     meas=lerp(pos.x+130, pos.x+410, newPos.x);//130 and 400 seems to work
-    measv=lerp(pos.y+59,height,newPosy.y);
+    measv=lerp(pos.y+59, height, newPosy.y);
     //changing the colour of the stars so they twinkle
     //might think about using vectors instead for this to get a more smoother movement
     //change the colour reletive to the mover
@@ -98,8 +98,9 @@ class TableFront extends GameObjects {
     line(newPos.x+3, 634, newPos.x+3, 636);
     //drawing the vertical mover
     fill(0);
-    rect(newPosy.x, newPosy.y, 25, 6);
+    rect(newPosy.x+1, newPosy.y, 25, 6); //main bar
     stroke(255);
-    line(newPosy.x,newPosy.y+3,newPosy.x-3,newPosy.y+3);
+    line(newPosy.x, newPosy.y+3, newPosy.x-3, newPosy.y+3);//hinge on left
+    line(newPosy.x+26, newPosy.y+3, newPosy.x+30, newPosy.y+3);
   }
 }
