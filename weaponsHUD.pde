@@ -25,7 +25,7 @@ TableFront table;
 Cannon cannon;
 boolean test2=true;
 
-///variables for the colour sequence
+///variables for the colour sequence\\\\\\\\\\\\\\
 boolean[] state = {false,false,false};
 float[] pointX={100,250,400}; //these are the x co-ordinates of the rects/squares to choose
 color[] c1={color(175,175,175),color(175,175,175),color(175,175,175)}; //for 3 squares (will multiply this to 10 :O
@@ -37,7 +37,7 @@ int[] die2={(int)random(0,3),(int)random(0,3),(int)random(0,3)}; //initialising 
 boolean checkMouse=false;//this will check if the mouse is pressed or released 
 color bac=color(120,120,120);//this will change the background colour
 boolean[] test={false,false,false}; //doesnt look like it will be used
-
+///end of variables for the colour sequence\\\\\\\\\\\
 
 void draw(){
   background(0);
