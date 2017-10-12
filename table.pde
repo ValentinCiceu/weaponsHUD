@@ -45,7 +45,7 @@ class TableFront extends GameObjects {
     if (newPos.x<pos.x+138) {
       speed=speed *-1;
     }
-    println(measv/100000);
+    //println(measv/100000);
 
     //vertical mover boundaries
     if (newPosy.y<pos.y+16) {
