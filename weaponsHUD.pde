@@ -1,8 +1,13 @@
 
-
+PImage earth;
+PImage earthR;
 void setup() {
   //fullScreen();
   size(1366,700);
+  
+  earth = loadImage("earth.png");
+  earthR = loadImage("earth2.png");
+  
   println("Widht:" + width, "Height: " +height);
   
   for(int i=0; i< 1000; i++){ //draw 1000 stars on the screen.
@@ -71,5 +76,7 @@ void draw(){
   //temp border
   fill(0);
   rect(1114,550,14,152);
+  image(earth,width-100,0);
+   image(earthR,500,562);
 
 }

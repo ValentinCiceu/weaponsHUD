@@ -25,7 +25,7 @@ class TableFront extends GameObjects {
   float circuitChoose;
 
 
- 
+
 
   TableFront(float x, float y, float speed) {
     super(x, y, speed);
@@ -39,8 +39,6 @@ class TableFront extends GameObjects {
 
     cirX =1150;
     cirY=570;
-
-
   }
 
 
@@ -98,9 +96,6 @@ class TableFront extends GameObjects {
     }
 
     //newCircuit=lerpColor(circuit1,circuit2,circuitRate[i]);
-
-
-
   }
 
 
@@ -111,22 +106,38 @@ class TableFront extends GameObjects {
 
     fill(newc);
     stroke(0); 
+    //horizontal bars
     rect(pos.x+138, pos.y+54, 162, 33); //1 horizontal bar
+    rect(pos.x+138, pos.y+104, 162, 33);
+    rect(pos.x+138, pos.y+10, 162, 33);
+
     stroke(255);
+    //horizontal bars
     for (int i=0; i<16; i++) {
-      line(pos.x+(145+(i*10)), pos.y+54, pos.x+(145+(i*10)), pos.y+60);
+      //for middle bar
+      line(pos.x+(145+(i*10)), pos.y+55, pos.x+(145+(i*10)), pos.y+60);
+      //for upper bar
+      line(pos.x+(145+(i*10)), pos.y+11, pos.x+(145+(i*10)), pos.y+17);
+      //for lower bar
+      line(pos.x+(145+(i*10)), pos.y+105, pos.x+(145+(i*10)), pos.y+110);
     }
+    //thi is for the horixontal bar
     for (int i=0; i<num.length; i++) {
       stroke(0);
       fill(0);
       textSize(8);
       text(num[i], pos.x +(143+(i*10)), pos.y+66);
+      //for upper var
+      text(num[i], pos.x +(143+(i*10)), pos.y+23);
+      //for lower bar
+      text(num[i], pos.x +(143+(i*10)), pos.y+116);
     }
     fill(0);
     stroke(0);
     rect(pos.x+505, pos.y+16, 115, 115); //2
     fill(newcv);
     rect(pos.x+661, pos.y+16, 33, 115); //3 vertical bar
+
     for (int i=0; i<11; i++) {
       stroke(255);
       line(pos.x+687, pos.y+(23+(i*10)), pos.x+690, pos.y+(23+(i*10)));
@@ -134,15 +145,28 @@ class TableFront extends GameObjects {
       //textSize(7);
       text(num[i], pos.x+682, pos.y+(26+(i*10)));
     }
+
     fill(255, 0, 0);
     noStroke();
     //rect(lineX, 609, 6, 25);
     stroke(0);
     fill(0);
+
+
     //drawing the horizontal mover
     rect(newPos.x, newPos.y, 6, 25);
     line(newPos.x+3, 605, newPos.x+3, 608);
     line(newPos.x+3, 634, newPos.x+3, 636);
+
+    rect(newPos.x, newPos.y+-46, 6, 25);
+    line(newPos.x+3, 593, newPos.x+3, 589);
+    line(newPos.x+3, 560, newPos.x+3, 569);
+
+    rect(newPos.x, newPos.y+49, 6, 25);
+    line(newPos.x+3, 654, newPos.x+3, 663);
+    line(newPos.x+3, 681, newPos.x+3, 687);
+
+
     //drawing the vertical mover
     fill(0);
     rect(newPosy.x+1, newPosy.y, 25, 6); //main bar
@@ -154,24 +178,31 @@ class TableFront extends GameObjects {
     //stroke(newCircuit);
     stroke(newCircuit);
     for (int i=0; i<3; i++) {
-     
+      //start of colour sequence circuit board
       line(cirX+5+(i*5), cirY, cirX+5+(i*5), cirY+50); //1 
-     
+
       line(cirX+5+(i*5), cirY+50, cirX+5+(i*5), cirY+100); //2
-      
+
       line(cirX+20, cirY+5+(i*5), cirX+75, cirY+5+(i*5)); //3
-      stroke(newc);
+
       line(cirX+20, cirY+55+(i*5), cirX+75, cirY+55+(i*5));//4 
-      stroke(newc);
+
       line(cirX+20, cirY+105+(i*5), cirX+75, cirY+105+(i*5));//5
+
       line(cirX+80+(i*5), cirY+55, cirX+80+(i*5), cirY+105);//6
+
       line(cirX+80+(i*5), cirY+5, cirX+80+(i*5), cirY+55);//7
+
       line(cirX+155+(i*5), cirY+55, cirX+155+(i*5), cirY+105);//8
+
       line(cirX+155+(i*5), cirY+5, cirX+155+(i*5), cirY+55);//9
 
       line(cirX+80, cirY+5+(i*5), cirX+155, cirY+5+(i*5));//10
+
       line(cirX+80, cirY+55+(i*5), cirX+155, cirY+55+(i*5));//11
+
       line(cirX+80, cirY+105+(i*5), cirX+155, cirY+105+(i*5));//12
+      //end of colour sequence board
     }
   }
 }
