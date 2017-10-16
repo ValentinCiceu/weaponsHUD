@@ -25,6 +25,8 @@ String[] textUp={"10", "20", "30", "40"};
  */
 
 
+//do the lerp function for the stroke of the squares, green to red
+
 //the colour sequence method
 void sequence() {
   //first square

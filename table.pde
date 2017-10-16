@@ -14,6 +14,19 @@ class TableFront extends GameObjects {
   float meas;
   float measv;
   String[] num={"1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G"};
+
+  //circuit variables
+  float cirX, cirY;
+  color circuit1 = color(255, 0, 0);
+  color circuit2 = color(0, 255, 0);
+  color  newCircuit;
+  float []circuitRate={0, 0, 0, 0};
+  float []circuitSpeed={0.005, 0.01, 0.002, 0.008};
+  float circuitChoose;
+
+
+ 
+
   TableFront(float x, float y, float speed) {
     super(x, y, speed);
 
@@ -23,6 +36,11 @@ class TableFront extends GameObjects {
     newPos=new PVector(lineX, lineY);
     newPosy=new PVector(lineX+527, lineY-40);
     vspeed=this.speed;
+
+    cirX =1150;
+    cirY=570;
+
+
   }
 
 
@@ -54,6 +72,35 @@ class TableFront extends GameObjects {
     if (newPosy.y>pos.y+122) {
       vspeed=vspeed*-1;
     }
+    /*
+    //for the circuit lerp
+     newCircuit=lerpColor(circuit1,circuit2,circuitRate);
+     circuitRate+=circuitSpeed;
+     
+     if(circuitRate>=1){
+     circuitSpeed-=circuitChoose;
+     }
+     else if(circuitRate <0){
+     circuitSpeed += circuitChoose; 
+     }
+     */
+    //float []circuitSpeed={0.005,0.01,0.002,0.008};
+
+    for (int i=0; i<circuitSpeed.length; i++) {
+      circuitRate[i]+=circuitSpeed[i];
+      if (circuitRate[i]>1) {
+        circuitSpeed[i]=circuitSpeed[i]*-1;
+      } else if (circuitRate[i] <0) {
+        circuitSpeed[i]=circuitSpeed[i]*-1;
+      }
+      newCircuit=lerpColor(circuit1, circuit2, circuitRate[i]);
+      println(circuitRate[i]);
+    }
+
+    //newCircuit=lerpColor(circuit1,circuit2,circuitRate[i]);
+
+
+
   }
 
 
@@ -102,5 +149,29 @@ class TableFront extends GameObjects {
     stroke(255);
     line(newPosy.x, newPosy.y+3, newPosy.x-3, newPosy.y+3);//hinge on left
     line(newPosy.x+26, newPosy.y+3, newPosy.x+30, newPosy.y+3);
+
+    //drawing circuit wires for the colour sequence
+    //stroke(newCircuit);
+    stroke(newCircuit);
+    for (int i=0; i<3; i++) {
+     
+      line(cirX+5+(i*5), cirY, cirX+5+(i*5), cirY+50); //1 
+     
+      line(cirX+5+(i*5), cirY+50, cirX+5+(i*5), cirY+100); //2
+      
+      line(cirX+20, cirY+5+(i*5), cirX+75, cirY+5+(i*5)); //3
+      stroke(newc);
+      line(cirX+20, cirY+55+(i*5), cirX+75, cirY+55+(i*5));//4 
+      stroke(newc);
+      line(cirX+20, cirY+105+(i*5), cirX+75, cirY+105+(i*5));//5
+      line(cirX+80+(i*5), cirY+55, cirX+80+(i*5), cirY+105);//6
+      line(cirX+80+(i*5), cirY+5, cirX+80+(i*5), cirY+55);//7
+      line(cirX+155+(i*5), cirY+55, cirX+155+(i*5), cirY+105);//8
+      line(cirX+155+(i*5), cirY+5, cirX+155+(i*5), cirY+55);//9
+
+      line(cirX+80, cirY+5+(i*5), cirX+155, cirY+5+(i*5));//10
+      line(cirX+80, cirY+55+(i*5), cirX+155, cirY+55+(i*5));//11
+      line(cirX+80, cirY+105+(i*5), cirX+155, cirY+105+(i*5));//12
+    }
   }
 }
