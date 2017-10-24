@@ -92,7 +92,7 @@ class TableFront extends GameObjects {
         circuitSpeed[i]=circuitSpeed[i]*-1;
       }
       newCircuit=lerpColor(circuit1, circuit2, circuitRate[i]);
-      println(circuitRate[i]);
+      //println(circuitRate[i]);
     }
 
     //newCircuit=lerpColor(circuit1,circuit2,circuitRate[i]);
@@ -100,6 +100,9 @@ class TableFront extends GameObjects {
 
 
   void render() {
+    pushMatrix();
+    rectMode(CORNER);
+    popMatrix();
     stroke(255); //comment this out, something intersting will happen
     fill(175);
     rect(pos.x, pos.y, width, height);  //main bar

@@ -6,7 +6,7 @@ void setup() {
   size(1366,700);
   
   earth = loadImage("earth.png");
-  earthR = loadImage("earth2.png");
+  earthR = loadImage("digitEarth.png");
   
   println("Widht:" + width, "Height: " +height);
   
@@ -75,8 +75,11 @@ void draw(){
   sequence();
   //temp border
   fill(0);
+  pushMatrix();
+  rectMode(CORNER);
+  popMatrix();
   rect(1114,550,14,152);
   image(earth,width-100,0);
-   image(earthR,500,562);
+  image(earthR,500,562);
 
 }
