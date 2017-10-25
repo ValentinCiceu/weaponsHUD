@@ -25,7 +25,7 @@ class TableFront extends GameObjects {
   float circuitChoose;
 
 
-
+  int buttonR=100;
 
   TableFront(float x, float y, float speed) {
     super(x, y, speed);
@@ -206,6 +206,15 @@ class TableFront extends GameObjects {
 
       line(cirX+80, cirY+105+(i*5), cirX+155, cirY+105+(i*5));//12
       //end of colour sequence board
-    }
+    }//end of circuit loop
+
+    //this will be the button to fire the deat laser
+
+    fill(255, 0, 0);
+    stroke(0);
+    ellipse(pos.x+405, pos.y+75, buttonR, buttonR);
+    fill(255, 255, 255);
+    textSize(10);
+    text("Fire Laser!", pos.x+380, pos.y+75);
   }
-}
+}//end of class
