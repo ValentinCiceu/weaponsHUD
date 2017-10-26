@@ -1,6 +1,7 @@
 
 PImage earth;
 PImage earthR;
+//add an array for PImage to do an explosion animation
 void setup() {
   //fullScreen();
   size(1366,700);
@@ -23,6 +24,10 @@ void setup() {
   for(int i=0; i<3; i++){
    println("die2:  " + die2[i]);  //this will print out the 3 dice number
   }
+  
+  //this is for the earth co-ordinates
+  earthX=width-100;
+  
 }
 
 ArrayList<GameObjects> go=new ArrayList();
@@ -61,6 +66,9 @@ int rectY=570;
 int recWidth=20;
 
 int recHeight=20;
+
+float earthX;
+float earthY=0f;
 //
 ///end of variables for the colour sequence\\\\\\\\\\\
 
@@ -79,7 +87,14 @@ void draw(){
   rectMode(CORNER);
   popMatrix();
   rect(1114,550,14,152);
-  image(earth,width-100,0);
-  image(earthR,500,562);
+  image(earth,earthX,earthY); //main earth
+  image(earthR,500,562); //eath hud on table
+  
+  //main laser hits earth
+  if(dist(cannon.pos.x+-70, cannon.pos.y+1381,earthX,earthY)<100){
+    println("Hit");
+  }
+  
+  //println("The postion of end laser is: ",cannon.pos.x+-70, cannon.pos.y+1381);
 
 }

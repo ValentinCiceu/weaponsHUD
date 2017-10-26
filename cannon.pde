@@ -13,6 +13,10 @@ class Cannon extends GameObjects {
   boolean inital =false;
   
   boolean destroy =false;
+  
+  float destroyTime;
+  float destroyTimer=0;
+  
 
   Cannon(float x, float y, float speed) {
     super(x, y, speed);
@@ -51,7 +55,7 @@ class Cannon extends GameObjects {
     triTime+=triSpeed;
 
 
-    println(growth);
+    //println(growth);
     
     if(dist(mouseX,mouseY,table.pos.x+405,table.pos.y+75)<table.buttonR/2){ //inside the fire button
       fire=true;
@@ -64,10 +68,12 @@ class Cannon extends GameObjects {
     
     if (triTime >=200 && fire==true && inital ==true && mousePressed) {
      destroy =true;
-      println("planet Destroyed");
+      //println("planet Destroyed");
+      destroyTimer=1.5f;
     }
+    destroyTime+=destroyTimer;
     
-    println(destroy);
+    //println(destroy);
   }//end of update
 
 
@@ -104,8 +110,8 @@ class Cannon extends GameObjects {
       line(pos.x+1, pos.y+298, pos.x+32, pos.y+362);//right
         }
         
-       if(destroy){
-          line(pos.x+32, pos.y+362, pos.x+-70, pos.y+1381);//middle
+       if(destroy && destroyTime <300){
+          line(pos.x+32, pos.y+362, pos.x+-70, pos.y+1381);//destroy laser
        }
     popMatrix();
     //do the death star laser
