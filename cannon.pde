@@ -7,16 +7,19 @@ class Cannon extends GameObjects {
   float y;
   float triTime;
   float triSpeed =0;
-  
+
+  boolean ready = false;
+  boolean aim = false;
+
   boolean fire=false;
-  
+
   boolean inital =false;
-  
+
   boolean destroy =false;
-  
+
   float destroyTime;
   float destroyTimer=0;
-  
+
 
   Cannon(float x, float y, float speed) {
     super(x, y, speed);
@@ -33,6 +36,17 @@ class Cannon extends GameObjects {
 
     if (counter ==3 && theta <4.3) { //when the colour sequnce is a succes you can rotate the cannon, 
       //now add a button to press as well.
+      ready=true;
+      //rotateSpeed=0.01;
+    }
+
+    if (ready && dist(mouseX, mouseY, table.pos.x+1021, table.pos.y+75)<table.buttonR/2 && mousePressed) {
+      aim=true;
+    } else {
+      aim =false;
+    }
+
+    if (aim) {
       rotateSpeed=0.01;
     }
 
@@ -56,23 +70,20 @@ class Cannon extends GameObjects {
 
 
     //println(growth);
-    
-    if(dist(mouseX,mouseY,table.pos.x+405,table.pos.y+75)<table.buttonR/2){ //inside the fire button
-      fire=true;
 
+    if (dist(mouseX, mouseY, table.pos.x+405, table.pos.y+75)<table.buttonR/2) { //inside the fire button
+      fire=true;
+    } else { //outside the fire button
+      fire =false;
     }
-    
-    else{ //outside the fire button
-     fire =false; 
-    }
-    
+
     if (triTime >=200 && fire==true && inital ==true && mousePressed) {
-     destroy =true;
+      destroy =true;
       //println("planet Destroyed");
       destroyTimer=1.5f;
     }
     destroyTime+=destroyTimer;
-    
+
     //println(destroy);
   }//end of update
 
@@ -100,19 +111,19 @@ class Cannon extends GameObjects {
     if (triTime >=150) {
 
       line(pos.x+59, pos.y+298, pos.x+32, pos.y+362);//left
-      }
-      
-      if (triTime >=100) {
+    }
+
+    if (triTime >=100) {
       line(pos.x+30, pos.y+298, pos.x+32, pos.y+362);//middle
-      }
-      
-      if (triTime >=200) {
+    }
+
+    if (triTime >=200) {
       line(pos.x+1, pos.y+298, pos.x+32, pos.y+362);//right
-        }
-        
-       if(destroy && destroyTime <300){
-          line(pos.x+32, pos.y+362, pos.x+-70, pos.y+1381);//destroy laser
-       }
+    }
+
+    if (destroy && destroyTime <300) {
+      line(pos.x+32, pos.y+362, pos.x+-70, pos.y+1381);//destroy laser
+    }
     popMatrix();
     //do the death star laser
   }

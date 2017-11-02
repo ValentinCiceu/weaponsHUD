@@ -216,7 +216,15 @@ class TableFront extends GameObjects {
     fill(255, 255, 255);
     textSize(10);
     text("Fire Laser!", pos.x+380, pos.y+75);
+
+    //this is the aim button
+    fill(255,0,0);
+    if(counter==3){
+     fill(0,255,0); 
+    }
+    ellipse(pos.x+1044, pos.y+75, buttonR, buttonR);
+    fill(255);
+    textSize(10);
+    text("Aim Cannon", pos.x+1021, pos.y+75);
   }
-  
-  
 }//end of class

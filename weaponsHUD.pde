@@ -19,8 +19,12 @@ void setup() {
   go.add(table);
   cannon=new Cannon(0,0,0); //adding the gun
   go.add(cannon);
-  circuit = new Circuit(50,600,0);
+  circuit = new Circuit(138,638,0.08 ,138 , 594);
   go.add(circuit);
+  aim = new Aimer(width/3,height/3,5);
+  go.add(aim);
+  
+  
   
   //this is for the random number generator
   for(int i=0; i<3; i++){
@@ -37,6 +41,7 @@ System sys;
 TableFront table;
 Cannon cannon;
 Circuit circuit;
+Aimer aim;
 boolean test2=true;
 
 ///variables for the colour sequence\\\\\\\\\\\\\\
@@ -77,6 +82,7 @@ float earthY=0f;
 
 void draw(){
   background(0);
+    image(earth,earthX,earthY); //main earth
   for(int i=0; i<go.size(); i++){ //this will loop the update and render of GameObjects
    GameObjects g=go.get(i);
     g.update();
@@ -90,7 +96,7 @@ void draw(){
   rectMode(CORNER);
   popMatrix();
   rect(1114,550,14,152);
-  image(earth,earthX,earthY); //main earth
+  //image(earth,earthX,earthY); //main earth
   image(earthR,500,562); //eath hud on table
   
   //main laser hits earth
