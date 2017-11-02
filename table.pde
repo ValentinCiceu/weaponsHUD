@@ -217,4 +217,6 @@ class TableFront extends GameObjects {
     textSize(10);
     text("Fire Laser!", pos.x+380, pos.y+75);
   }
+  
+  
 }//end of class

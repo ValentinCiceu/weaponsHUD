@@ -11,7 +11,7 @@ void setup() {
   
   println("Widht:" + width, "Height: " +height);
   
-  for(int i=0; i< 1000; i++){ //draw 1000 stars on the screen.
+  for(int i=0; i< 1500; i++){ //draw 1000 stars on the screen.
    sys=new System(random(width),random(height), 0); 
    go.add(sys);
   }
@@ -19,6 +19,8 @@ void setup() {
   go.add(table);
   cannon=new Cannon(0,0,0); //adding the gun
   go.add(cannon);
+  circuit = new Circuit(50,600,0);
+  go.add(circuit);
   
   //this is for the random number generator
   for(int i=0; i<3; i++){
@@ -34,6 +36,7 @@ ArrayList<GameObjects> go=new ArrayList();
 System sys;
 TableFront table;
 Cannon cannon;
+Circuit circuit;
 boolean test2=true;
 
 ///variables for the colour sequence\\\\\\\\\\\\\\
