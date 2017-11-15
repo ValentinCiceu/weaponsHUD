@@ -30,20 +30,20 @@ class Aimer extends GameObjects {
     line(pos.x, table.pos.y, pos.x, pos.y);
     line(width, pos.y, pos.x, pos.y);
     //secondary lines
-    rect(pos.x+-20, pos.y+-78, 40, 10);
-    rect(pos.x+-20, pos.y+-219, 40, 10);
-    rect(pos.x+-20, pos.y+84, 40, 10);
-    rect(pos.x+-141, pos.y+-20, 10, 40);
-    rect(pos.x+-20, pos.y+274, 40, 10);
-    rect(pos.x+-432, pos.y+-19, 10, 40);
+    rect(pos.x+-20, pos.y+-78, 40, 2);
+    rect(pos.x+-20, pos.y+-219, 40, 2);
+    rect(pos.x+-20, pos.y+84, 40, 2);
+    rect(pos.x+-103, pos.y+-20, 2, 40); // 
+    rect(pos.x+-20, pos.y+274, 40, 2);
+    rect(pos.x+-432, pos.y+-19, 2, 40);
     for(int i=0; i<10; i++){
-     rect(pos.x+(-432 - i*300), pos.y+-19, 10, 40); 
+     rect(pos.x+(-432 - i*300), pos.y+-19, 2, 40); 
     }
     
     
-    rect(pos.x+91, pos.y+-19, 10, 40);
+    rect(pos.x+91, pos.y+-19, 2, 40);
 for(int i=0; i<10; i++){
-  rect(pos.x+(91 + i*300), pos.y+-19, 10, 40);
+  rect(pos.x+(91 + i*300), pos.y+-19, 2, 40);
 }
 
 

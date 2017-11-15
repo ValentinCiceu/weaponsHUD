@@ -88,7 +88,6 @@ void draw(){
     g.update();
     g.render();
   }
-  
   sequence();
   //temp border
   fill(0);

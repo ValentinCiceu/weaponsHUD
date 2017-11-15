@@ -17,6 +17,8 @@ class Cannon extends GameObjects {
 
   boolean destroy =false;
 
+  boolean endRotation = false;
+  
   float destroyTime;
   float destroyTimer=0;
 
@@ -40,7 +42,7 @@ class Cannon extends GameObjects {
       //rotateSpeed=0.01;
     }
 
-    if (ready && dist(mouseX, mouseY, table.pos.x+1021, table.pos.y+75)<table.buttonR/2 && mousePressed) {
+    if (ready && dist(mouseX, mouseY, table.pos.x+1021, table.pos.y+75)<table.buttonR/2 && mousePressed && !endRotation) {
       aim=true;
     } else {
       aim =false;
@@ -50,8 +52,10 @@ class Cannon extends GameObjects {
       rotateSpeed=0.01;
     }
 
+    //without endRotation
     theta+=rotateSpeed;
     if (theta >=4.3) {
+      endRotation=true;
       rotateSpeed=0;
     }
 
