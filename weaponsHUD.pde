@@ -24,7 +24,8 @@ void setup() {
   aim = new Aimer(width/3,height/3,5);
   go.add(aim);
   
-  
+ // slider = new Slider(200,250,1,100,10);
+  //go.add(slider);
   
   //this is for the random number generator
   for(int i=0; i<3; i++){
@@ -34,14 +35,21 @@ void setup() {
   //this is for the earth co-ordinates
   earthX=width-100;
   
+  //adding multiple sliders
+  for(int i=0; i< 5; i ++){
+   slider = new Slider(0,(table.pos.y + 10) + (i*10),random(1,5),135,10);
+  go.add(slider);
+  }
+  
 }
-
+//all of the classes.
 ArrayList<GameObjects> go=new ArrayList();
 System sys;
 TableFront table;
 Cannon cannon;
 Circuit circuit;
 Aimer aim;
+Slider slider;
 boolean test2=true;
 
 ///variables for the colour sequence\\\\\\\\\\\\\\

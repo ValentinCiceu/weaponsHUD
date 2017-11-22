@@ -48,6 +48,7 @@ for(int i=0; i<10; i++){
 
 
     fill(255);
+    noFill();
     rect(pos.x-50, pos.y-25, 100, 50);
   }
 }
