@@ -24,7 +24,7 @@ class Slider extends GameObjects {
     forward.normalize();
     myPos.add(PVector.mult(forward , speed));
     
-    if(dist(myPos.x, myPos.y , point.x , point.y) <10){
+    if(dist(myPos.x, myPos.y , point.x , point.y) <5){
      point.x = random(0,len);
      speed = random(0.05 , 5);
     }

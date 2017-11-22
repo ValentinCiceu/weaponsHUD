@@ -1,6 +1,6 @@
 //vertical sliders
 class SliderV extends GameObjects {
-//horizontal slider
+//vertical slider
   float len;
   float tic;
   float filler;
@@ -12,7 +12,7 @@ class SliderV extends GameObjects {
     pos = new PVector(x, y);
     forward = new PVector();
     myPos = new PVector(0, 0);
-    point = new PVector(len,0);
+    point = new PVector(0,tic);
     this.len = len;
     this.tic = tic;
     speed = random(0.05 , 5);
@@ -25,10 +25,12 @@ class SliderV extends GameObjects {
     forward.normalize();
     myPos.add(PVector.mult(forward , speed));
     
-    if(dist(myPos.x, myPos.y , point.x , point.y) <10){
-     point.x = random(0,len);
+    if(dist(myPos.x, myPos.y , point.x , point.y) <5){
+     point.y = random(0,tic);
      speed = random(0.05 , 5);
     }
+    
+    
   }
   
   void render(){
@@ -40,7 +42,7 @@ class SliderV extends GameObjects {
     //filler/slider part
     //noStroke();
     fill(0,255,0);
-    rect(pos.x , pos.y , myPos.x , tic);
+    rect(pos.x , pos.y+tic ,len ,- myPos.y );
     
   }
 }
