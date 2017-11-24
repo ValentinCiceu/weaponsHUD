@@ -14,7 +14,7 @@ class Slider extends Graphic {
     speed = random(0.05 , 5);
   }
   
-  
+
   void update(){
     PVector goTo = new PVector(point.x,point.y);
     forward = PVector.sub(goTo,myPos);
@@ -25,6 +25,7 @@ class Slider extends Graphic {
      point.x = random(0,len);
      speed = random(0.05 , 5);
     }
+
   }
   
   void render(){
