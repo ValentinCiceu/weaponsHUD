@@ -1,14 +1,9 @@
 //vertical sliders
-class SliderV extends GameObjects {
+class SliderV extends Graphic {
 //vertical slider
-  float len;
-  float tic;
-  float filler;
 
-  PVector myPos; //position for the slider.
-  PVector point;//point to go to
   SliderV(float x, float y, float speed, float len, float tic) {
-    super(x, y, speed);
+    super(x,y,speed,len,tic);
     pos = new PVector(x, y);
     forward = new PVector();
     myPos = new PVector(0, 0);

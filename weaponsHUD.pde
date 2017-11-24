@@ -39,17 +39,18 @@ void setup() {
   //adding multiple horizonatal sliders sliders
   for (int i=0; i< 6; i ++) {
     slider = new Slider(0, (table.pos.y + 10) + (i*10), random(0.05, 5), 135, 10);
-    go.add(slider);
+    gr.add(slider);
   }
 
   //adding multiple vertical sliders
   for (int i=0; i< 13; i++) {
     sliderV =  new SliderV(table.pos.x + (i * 10), height - 75, random(0.05, 5), 10, 75);
-    go.add(sliderV);
+    gr.add(sliderV);
   }
 }
 //all of the classes.
 ArrayList<GameObjects> go=new ArrayList();
+ArrayList<Graphic> gr = new ArrayList();
 System sys;
 TableFront table;
 Cannon cannon;
@@ -103,6 +104,13 @@ void draw() {
     g.update();
     g.render();
   }
+  
+  for(int i =0; i < gr.size(); i++){
+   Graphic graphic = gr.get(i);
+   graphic.update();
+   graphic.render();
+  }
+  
   sequence();
   //temp border
   fill(0);

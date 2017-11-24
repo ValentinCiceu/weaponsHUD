@@ -1,13 +1,10 @@
-class Slider extends GameObjects {
+class Slider extends Graphic {
 //hori
-  float len;
-  float tic;
-  float filler;
 
-  PVector myPos; //position for the slider.
-  PVector point;//point to go to
   Slider(float x, float y, float speed, float len, float tic) {
-    super(x, y, speed);
+    //super(x, y, speed);
+    //Graphic(float x, float y,float speed ,float len, float tic, float filler) 
+    super(x,y,speed,len,tic);
     pos = new PVector(x, y);
     forward = new PVector();
     myPos = new PVector(0, 0);
