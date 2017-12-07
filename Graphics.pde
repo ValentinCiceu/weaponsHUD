@@ -21,6 +21,11 @@ abstract class Graphic {
     this.speed = speed;
   }
   //making sure my base classes have these methods
+  
+  void  setting(){
+    
+  }
+  
   abstract void update();
 
 

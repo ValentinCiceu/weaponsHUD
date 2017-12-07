@@ -112,16 +112,16 @@ class Cannon extends GameObjects {
 
     //drawing the tri laser hingy for the cannon (like in the death star)
     stroke(0, 255, 0);
-    if (triTime >=150) {
+    if (triTime >=150 && destroyTime <300) {
 
       line(pos.x+59, pos.y+298, pos.x+32, pos.y+362);//left
     }
 
-    if (triTime >=100) {
+    if (triTime >=100 && destroyTime <300) {
       line(pos.x+30, pos.y+298, pos.x+32, pos.y+362);//middle
     }
 
-    if (triTime >=200) {
+    if (triTime >=200 && destroyTime <300) {
       line(pos.x+1, pos.y+298, pos.x+32, pos.y+362);//right
     }
 

@@ -105,7 +105,7 @@ void sequence() {
     c1[die2[2]]=color(100, 100, 100);
   }
 
-  text("Time: " +time, 250, 250);
+  //text("Time: " +time, 250, 250);
 }
 
 void mousePressed() {

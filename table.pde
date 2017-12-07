@@ -101,6 +101,7 @@ class TableFront extends GameObjects {
 
   void render() {
     pushMatrix();
+    textAlign(BASELINE );
     rectMode(CORNER);
     popMatrix();
     stroke(255); //comment this out, something intersting will happen

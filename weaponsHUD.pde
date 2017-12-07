@@ -23,6 +23,15 @@ void setup() {
   go.add(circuit);
   aim = new Aimer(width/3, height/3, 5);
   go.add(aim);
+  
+  
+  
+  ag = new AllGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
+  gr.add(ag);
+  graph = new DeathGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
+  life = new LifeDesc(width/2 , (height/2) - 100 , 0,200);
+  gr.add(life);
+  //gr.add(graph);
   //sliderV = new SliderV(200,250,1,10,75);
   //go.add(sliderV);
   // slider = new Slider(200,250,1,100,10);
@@ -49,8 +58,16 @@ void setup() {
   }
 }
 //all of the classes.
-ArrayList<GameObjects> go=new ArrayList();
-ArrayList<Graphic> gr = new ArrayList();
+ArrayList<GameObjects> go=new ArrayList<GameObjects>();
+ArrayList<Graphic> gr = new ArrayList<Graphic>();
+
+//graph stuff
+DeathGraph graph;
+AllGraph ag;
+LifeDesc life;
+
+//object stuff
+
 System sys;
 TableFront table;
 Cannon cannon;
@@ -112,6 +129,9 @@ void draw() {
   }
   
   sequence();
+  
+
+  
   //temp border
   fill(0);
   pushMatrix();
