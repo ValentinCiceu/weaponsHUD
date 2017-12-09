@@ -1,6 +1,13 @@
 class LifeDesc extends Graphic {
+  //most populated countries in the world
+  //the pie chart will represent the top ten most populated countries in the world
+  //info taken from http://www.internetworldstats.com/stats8.htm
+
   float diameter;
-  float []data = {400, 120, 75, 30};//these are the data of creatures living on 
+  //to test to see if com can handle big numbers
+  //does take a couple of moments to load the calculations onto the pie chart
+  //float []data = {1268301605, 1006300297, 282162411, 214090575};//these are the data of creatures living on 
+  float []data = {500, 200, 150, 60};
   String[]desc = {"Humans", "Other Sea", "Other Land", "Unkown"};
   //earth. 100 = humans , 30 = other sea creatures , other land creatures , 4 represents
   //Axanar (or other beings)
@@ -27,28 +34,29 @@ class LifeDesc extends Graphic {
     //this is the analyzing the earth text
     time+=timer;
     dtime+=dtimer;
+    println(time);
     textSize(13);
-    if (time<100) {
-      text("Analyzing subject: Earth", pos.x-65, pos.y/2 -50);
-    } else if (time > 150) {
-      time=0;
-    }
+    //if (time<100) {
+    //  //text("Analyzing subject: Earth", pos.x, pos.y);      
+    //} else if (time > 150) {
+    //  time=0;
+    //}
 
-    if (dtime > 50 ) {
-      text("Dominant species: Human", pos.x-65, pos.y/2 - 35);
-    }
+    //if (dtime > 50 ) {
+    //  text("Dominant species: Human", pos.x-65, pos.y/2 - 35);
+    //}
 
-    if (dtime > 100) {
-      text("Advancment : Moderate", pos.x-65, pos.y/2 - 15);
-    }
+    //if (dtime > 100) {
+    //  text("Advancment : Moderate", pos.x-65, pos.y/2 - 15);
+    //}
 
-    if (dtime > 150) {
-      text("Behaviour: Aggressive", pos.x-65, pos.y/2 +5);
-    }
+    //if (dtime > 150) {
+    //  text("Behaviour: Aggressive", pos.x-65, pos.y/2 +5);
+    //}
 
-    if (dtime > 200) {
-      dtime=0;
-    }
+    //if (dtime > 200) {
+    //  dtime=0;
+    //}
 
     //this is the pie chart
     //convert all numbers to fill the circle, i.e. convert to 360/
@@ -70,12 +78,12 @@ class LifeDesc extends Graphic {
     //growing and shrinking data based on the population boom and lost for all creatures
     //data[0]+=rateG;
     if (data[0] > 300) {
-      rateG=-2;//random(-2 , -0.5);
+      //rateG=-2;//random(-2 , -0.5);
     }
     //if (data[0] < data[0]-200) {
     //  rateG = 2;//random(0.5,2);
     //}
-    println(data[0]);
+    //println(data[0]);
 
 
 
@@ -123,7 +131,32 @@ class LifeDesc extends Graphic {
       //popMatrix();
       rectMode(CORNER);
       //theta +=0.05;
+    }//end of for loop
+
+  textSize(10);
+    if (time<100) {
+      text("Analyzing subject: Earth",ag.pos.x+5, ag.pos.y+10);
+    } else if (time > 150) {
+      time=0;
     }
+
+    if (dtime > 50 ) {
+      text("Dominant species: Human", ag.pos.x+5, ag.pos.y+20);
+    }
+
+    if (dtime > 100) {
+      text("Advancment : Moderate", ag.pos.x+5, ag.pos.y+30);
+    }
+
+    if (dtime > 150) {
+      text("Behaviour: Aggressive", ag.pos.x+5, ag.pos.y+40);
+    }
+
+    if (dtime > 200) {
+      dtime=0;
+    }
+
+
     //fill(255);
     //text(desc[0], ag.pos.x+70, ag.pos.y+100);
     //pushMatrix();
