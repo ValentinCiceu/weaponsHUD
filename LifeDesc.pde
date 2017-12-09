@@ -23,11 +23,23 @@ class LifeDesc extends Graphic {
   //this is for the rotating object
   float theta;
   float radius;  
+  
+  //variables for the population csv files
+  String name;
+  float population;
+  
   LifeDesc(float x, float y, float speed, float diameter) {
     super(x, y, speed, 0, 0);
     this.diameter = diameter;
     //rateG = random(0.5, 2);
   }
+
+  void loadData(){
+    
+    
+    
+  }
+
 
   void update() {
 
@@ -133,9 +145,9 @@ class LifeDesc extends Graphic {
       //theta +=0.05;
     }//end of for loop
 
-  textSize(10);
+    textSize(10);
     if (time<100) {
-      text("Analyzing subject: Earth",ag.pos.x+5, ag.pos.y+10);
+      text("Analyzing subject: Earth", ag.pos.x+5, ag.pos.y+10);
     } else if (time > 150) {
       time=0;
     }

@@ -57,10 +57,31 @@ void setup() {
     sliderV =  new SliderV(table.pos.x + (i * 10), height - 75, random(0.05, 5), 10, 75);
     gr.add(sliderV);
   }
-}
+  
+  loadData();
+}//end of setup
 //all of the classes.
 ArrayList<GameObjects> go=new ArrayList<GameObjects>();
 ArrayList<Graphic> gr = new ArrayList<Graphic>();
+//an arraylist dedicated for the data
+ArrayList<Data>data = new ArrayList<Data>();
+Data da;
+void loadData(){
+ Table table = loadTable("cafe.csv" , "header"); 
+  for(TableRow r : table.rows()){
+    //to retrieve all the data
+   da = new Data(r);
+   data.add(da);
+   //Data d = new Data(r);
+   //data.add(d);
+   //bug here. added so many objects
+   //d.update(); 
+   //d.render();
+   //println(d);
+  }
+  da.update(); //adding the object just once
+}
+
 
 //graph stuff
 DeathGraph graph;
@@ -112,8 +133,17 @@ int recHeight=20;
 
 float earthX;
 float earthY=0f;
+
 //
 ///end of variables for the colour sequence\\\\\\\\\\\
+
+
+//to load the data for the population
+
+  
+  
+
+
 
 void draw() {
   background(0);
