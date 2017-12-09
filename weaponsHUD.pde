@@ -25,11 +25,12 @@ void setup() {
   go.add(aim);
   
   
-  
-  ag = new AllGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
+  sliderPie = new SliderV(800,200 ,random(0.05, 5), 15, 135);
+  //ag = new AllGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
+  ag = new AllGraph((width/2)+50,height - 150,random(0.005 , 2) , 20 , 400);
   gr.add(ag);
-  graph = new DeathGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
-  life = new LifeDesc(width/2 , (height/2) - 100 , 0,200);
+  graph = new DeathGraph((width/2)-100,10,random(0.5,4), 20 , 140);
+  life = new LifeDesc(width/2 , (height/2) - 100 , 0,100);
   gr.add(life);
   //gr.add(graph);
   //sliderV = new SliderV(200,250,1,10,75);
@@ -74,6 +75,7 @@ Cannon cannon;
 Circuit circuit;
 Aimer aim;
 Slider slider;
+SliderV sliderPie;
 SliderV sliderV;
 boolean test2=true;
 
