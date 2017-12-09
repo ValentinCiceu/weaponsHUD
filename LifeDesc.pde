@@ -94,12 +94,12 @@ class LifeDesc extends Graphic {
       fill(0, greenScale, blueScale);
       //fill(multi[i]);
       //pos x , pos ,y size width , size height, start angle , got to this angle
-      arc(ag.pos.x+100, ag.pos.y+80, diameter, diameter, lastAngle, lastAngle + radians(data[i]));
+      arc(ag.pos.x+30, ag.pos.y+100, diameter, diameter, lastAngle, lastAngle + radians(data[i]));
       lastAngle += radians(data[i]); //this is for the second angle
 
       //the key for the pi chart
       rectMode(CENTER);
-      rect(pos.x-250, pos.y  +i*20, 15, 15);
+      //rect(pos.x-250, pos.y  +i*20, 15, 15);
       // text(desc[i], pos.x-235, pos.y +10 +i*20);
 
       //for the rotating rectangles which is for sytem charaging
@@ -142,9 +142,9 @@ class LifeDesc extends Graphic {
 
     fill(255);
     textSize(10);
-    text(desc[0], ag.pos.x+70, ag.pos.y+140);
-    text(desc[1], ag.pos.x+70, ag.pos.y+25);
-    text(desc[2], ag.pos.x+140, ag.pos.y+50);
-    text(desc[3], ag.pos.x+160, ag.pos.y+80);
+    text(desc[0], ag.pos.x+10, ag.pos.y+140);
+    text(desc[1], ag.pos.x+10, ag.pos.y+70);
+    text(desc[2], ag.pos.x+50, ag.pos.y+85);
+    text(desc[3], ag.pos.x+55, ag.pos.y+98);
   }
 }
