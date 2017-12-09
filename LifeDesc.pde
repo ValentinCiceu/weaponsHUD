@@ -7,7 +7,8 @@ class LifeDesc extends Graphic {
   //to test to see if com can handle big numbers
   //does take a couple of moments to load the calculations onto the pie chart
   //float []data = {1268301605, 1006300297, 282162411, 214090575};//these are the data of creatures living on 
-  float []data = {500, 200, 150, 60};
+ // float []data = {500, 200, 150, 60};
+ float[]data=new float[10];
   String[]desc = {"Humans", "Other Sea", "Other Land", "Unkown"};
   //earth. 100 = humans , 30 = other sea creatures , other land creatures , 4 represents
   //Axanar (or other beings)
@@ -72,18 +73,24 @@ class LifeDesc extends Graphic {
 
     //this is the pie chart
     //convert all numbers to fill the circle, i.e. convert to 360/
+    
+    //storing the values of data array to this one to be used in pie chart
+    for(int i=0; i<da.popArr.length; i++){
+      data[i] = da.popArr[i];
+    }
+    
     //step 1) calculate the total of the circles
     float total = 0;
-    for (int i =0; i<data.length; i++) {
+    for (int i =0; i<da.popArr.length; i++) { //was data.length
       total = total + data[i];
     }
     //step2) calculate the percentage by dividing each value by the percentage
-    for (int i=0; i<data.length; i++) {
+    for (int i=0; i<da.popArr.length; i++) {
       data[i] = data[i] / total; 
       //converting all the data to the it's representing percentage
     }
     //step3) converting to put in range of 360
-    for (int i=0; i<data.length; i++) {
+    for (int i=0; i<da.popArr.length; i++) {
       data[i] = data[i] * 360;
     }
 
@@ -103,6 +110,8 @@ class LifeDesc extends Graphic {
     //borrowing a slider from the class
     //sliderPie.update();
     //sliderPie.render();
+    
+     //println(da.nameArr.length); 
   }
 
   void render() {
