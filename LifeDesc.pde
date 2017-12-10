@@ -7,8 +7,11 @@ class LifeDesc extends Graphic {
   //to test to see if com can handle big numbers
   //does take a couple of moments to load the calculations onto the pie chart
   //float []data = {1268301605, 1006300297, 282162411, 214090575};//these are the data of creatures living on 
- // float []data = {500, 200, 150, 60};
- float[]data=new float[10];
+  // float []data = {500, 200, 150, 60};
+  float[]data=new float[10];
+  String[] country = new String[10];
+
+
   String[]desc = {"Humans", "Other Sea", "Other Land", "Unkown"};
   //earth. 100 = humans , 30 = other sea creatures , other land creatures , 4 represents
   //Axanar (or other beings)
@@ -24,21 +27,18 @@ class LifeDesc extends Graphic {
   //this is for the rotating object
   float theta;
   float radius;  
-  
+
   //variables for the population csv files
   String name;
   float population;
-  
+
   LifeDesc(float x, float y, float speed, float diameter) {
     super(x, y, speed, 0, 0);
     this.diameter = diameter;
     //rateG = random(0.5, 2);
   }
 
-  void loadData(){
-    
-    
-    
+  void loadData() {
   }
 
 
@@ -73,12 +73,21 @@ class LifeDesc extends Graphic {
 
     //this is the pie chart
     //convert all numbers to fill the circle, i.e. convert to 360/
-    
+
     //storing the values of data array to this one to be used in pie chart
-    for(int i=0; i<da.popArr.length; i++){
+    for (int i=0; i<da.popArr.length; i++) {
       data[i] = da.popArr[i];
     }
-    
+
+    //to stroe all the names
+    for (int i=0; i< da.nameArr.length; i++) {
+      country[i] = da.nameArr[i];
+    }
+
+
+
+
+
     //step 1) calculate the total of the circles
     float total = 0;
     for (int i =0; i<da.popArr.length; i++) { //was data.length
@@ -110,8 +119,8 @@ class LifeDesc extends Graphic {
     //borrowing a slider from the class
     //sliderPie.update();
     //sliderPie.render();
-    
-     //println(da.nameArr.length); 
+
+    //println(da.nameArr.length);
   }
 
   void render() {
@@ -123,11 +132,17 @@ class LifeDesc extends Graphic {
       fill(0, greenScale, blueScale);
       //fill(multi[i]);
       //pos x , pos ,y size width , size height, start angle , got to this angle
-      arc(ag.pos.x+30, ag.pos.y+100, diameter, diameter, lastAngle, lastAngle + radians(data[i]));
+      arc(ag.pos.x+100, ag.pos.y+100, diameter, diameter, lastAngle, lastAngle + radians(data[i]));
+      float cx = (ag.pos.x + 100 ) + sin(lastAngle + radians(data[i] *0.5f) + HALF_PI) * 85;
+      float cy = (ag.pos.y + 100) - cos(lastAngle + radians(data[i]*0.5f) + HALF_PI) *85;
+      textSize(8);
+      fill(255,0,0);
+      text(country[i] ,cx , cy); 
+
       lastAngle += radians(data[i]); //this is for the second angle
 
       //the key for the pi chart
-      rectMode(CENTER);
+      //rectMode(CENTER);
       //rect(pos.x-250, pos.y  +i*20, 15, 15);
       // text(desc[i], pos.x-235, pos.y +10 +i*20);
 
@@ -150,10 +165,10 @@ class LifeDesc extends Graphic {
       //rotate(-theta);
       //rect(0, 0, 100, 20);
       //popMatrix();
-      rectMode(CORNER);
+      //rectMode(CORNER);
       //theta +=0.05;
     }//end of for loop
-
+/*
     textSize(10);
     if (time<100) {
       text("Analyzing subject: Earth", ag.pos.x+5, ag.pos.y+10);
@@ -177,7 +192,7 @@ class LifeDesc extends Graphic {
       dtime=0;
     }
 
-
+*/
     //fill(255);
     //text(desc[0], ag.pos.x+70, ag.pos.y+100);
     //pushMatrix();
@@ -194,11 +209,11 @@ class LifeDesc extends Graphic {
     //text(desc[2], 0, 0 );
     //popMatrix();
 
-    fill(255);
-    textSize(10);
-    text(desc[0], ag.pos.x+10, ag.pos.y+140);
-    text(desc[1], ag.pos.x+10, ag.pos.y+70);
-    text(desc[2], ag.pos.x+50, ag.pos.y+85);
-    text(desc[3], ag.pos.x+55, ag.pos.y+98);
+    //fill(255);
+    //textSize(10);
+    //text(desc[0], ag.pos.x+10, ag.pos.y+140);
+    //text(desc[1], ag.pos.x+10, ag.pos.y+70);
+    //text(desc[2], ag.pos.x+50, ag.pos.y+85);
+    //text(desc[3], ag.pos.x+55, ag.pos.y+98);
   }
 }
