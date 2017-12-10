@@ -13,8 +13,9 @@ class Aimer extends GameObjects {
     PVector moveTo = new PVector(earthX+50, earthY+50);
     forward = PVector.sub(moveTo, pos);
     forward.normalize();
-    pos.add(PVector.mult(forward, speed));
-
+    if(cannon.canAim==true){
+    pos.add(PVector.mult(forward, speed)); //to move the aimer towards earth
+    }
     if (dist(pos.x, pos.y, moveTo.x, moveTo.y)<10) {
       speed=0;
     }

@@ -19,6 +19,9 @@ class Cannon extends GameObjects {
 
   boolean endRotation = false;
   
+  //for the aiming class
+  boolean canAim = false;
+  
   float destroyTime;
   float destroyTimer=0;
 
@@ -47,6 +50,7 @@ class Cannon extends GameObjects {
       if(mousePressed){
         println("im pressed");
       aim=true;
+      canAim = true;
       }
     } else {
       aim =false;

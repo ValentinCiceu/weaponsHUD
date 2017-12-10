@@ -29,10 +29,11 @@ class AllGraph extends Graphic {
     if (key=='2') {
       life.update();
     }
-    
-    if(key=='3'){
-     aim.update(); 
+
+    if (key=='3') {
+      aim.update();
     }
+
   }//end of update
 
   void render() {
@@ -46,32 +47,32 @@ class AllGraph extends Graphic {
     if (key=='2') {
       life.render();
     }
-    
-    if(key=='3'){
-     aim.render(); 
+
+    if (key=='3') {
+      aim.render();
     }
+
     //println(key);
 
     //drwaing the squres to represent the modes you can select
     //red means unselected , green means selected
     stroke(0);
-    if(key=='1'){
-      fill(0,255,0);
-    }else{
-    fill(255, 0, 0); //the barchart
+    if (key=='1') {
+      fill(0, 255, 0);
+    } else {
+      fill(255, 0, 0); //the barchart
     }
     rect(pos.x+205, pos.y+5, 20, 20);
-    if(key=='2'){
-     fill(0,255,0); 
-    }else{
-    fill(255, 0, 0);//the pie chart
+    if (key=='2') {
+      fill(0, 255, 0);
+    } else {
+      fill(255, 0, 0);//the pie chart
     }
     rect(pos.x+205, pos.y+45, 20, 20);
-    if(key=='3'){
-     fill(0,255,0); 
-    }else{
-    fill(255, 0, 0);//the aimer
-    }
+    if (key=='3') {
+      fill(0, 255, 0);
+    } else{
+    fill(255,0,0);}
     rect(pos.x+205, pos.y+85, 20, 20);
   }//end of render
 }//end of class
