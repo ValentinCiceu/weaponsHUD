@@ -30,39 +30,68 @@ String[] textUp={"10", "20", "30", "40"};
 //the colour sequence method
 void sequence() {
   //first square
-  fill(c1[0]);
+  
+  //on success light all squares to green
+  if(counter ==3){
+   fill(0,255,0); 
+  }else{
+  fill(c1[0]);}
   rect(pointX[0], pointY[0], recWidth, recHeight);
 
   //second square
-  fill(c1[1]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[1]);}
   rect(pointX[1], pointY[1], recWidth, recHeight);
 
   //thrid square
-  fill(c1[2]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[2]);}
   rect(pointX[2], pointY[2], recWidth, recHeight);
 
   //fourth square
-  fill(c1[3]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[3]);}
   rect(pointX[3], pointY[3], recWidth, recHeight);
 
   //fifth square
-  fill(c1[4]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[4]);}
   rect(pointX[4], pointY[4], recWidth, recHeight);
 
   //sixth square
-  fill(c1[5]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[5]);}
   rect(pointX[5], pointY[5], recWidth, recHeight);
   
     //seventh square
-  fill(c1[6]);
+      if(counter ==3){
+   fill(0,255,0); 
+      }else{
+  fill(c1[6]);}
   rect(pointX[6], pointY[6], recWidth, recHeight);
 
   //eight square
-  fill(c1[7]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[7]);}
   rect(pointX[7], pointY[7], recWidth, recHeight);
 
   //ninth square
-  fill(c1[8]);
+    if(counter ==3){
+   fill(0,255,0); 
+    }else{
+  fill(c1[8]);}
   rect(pointX[8], pointY[8], recWidth, recHeight);
 
 
@@ -105,7 +134,10 @@ void sequence() {
     c1[die2[2]]=color(100, 100, 100);
   }
 
-  //text("Time: " +time, 250, 250);
+  text("Time: " +time, 250, 250); //at 1000 restart the thingy
+  if(counter !=3 && time > 1000){
+   time = 0; 
+  }
 }
 
 void mousePressed() {
