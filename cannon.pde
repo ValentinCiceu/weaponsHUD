@@ -42,8 +42,12 @@ class Cannon extends GameObjects {
       //rotateSpeed=0.01;
     }
 
-    if (ready && dist(mouseX, mouseY, table.pos.x+1021, table.pos.y+75)<table.buttonR/2 && mousePressed && !endRotation) {
+    if (ready && dist(mouseX, mouseY, table.pos.x+1044, table.pos.y+75)<table.buttonR/2 && !endRotation) {
+      println("im in");
+      if(mousePressed){
+        println("im pressed");
       aim=true;
+      }
     } else {
       aim =false;
     }
@@ -130,5 +134,6 @@ class Cannon extends GameObjects {
     }
     popMatrix();
     //do the death star laser
+
   }
 }

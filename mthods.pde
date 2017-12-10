@@ -134,7 +134,7 @@ void sequence() {
     c1[die2[2]]=color(100, 100, 100);
   }
 
-  text("Time: " +time, 250, 250); //at 1000 restart the thingy
+  //text("Time: " +time, 250, 250); //at 1000 restart the thingy
   if(counter !=3 && time > 1000){
    time = 0; 
   }
