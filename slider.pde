@@ -36,6 +36,7 @@ class Slider extends Graphic {
     rect(pos.x , pos.y , len, tic);
     //filler/slider part
     //noStroke();
+    //stroke(0);
     fill(0,255,0);
     rect(pos.x , pos.y , myPos.x , tic);
     

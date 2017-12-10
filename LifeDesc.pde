@@ -133,10 +133,10 @@ class LifeDesc extends Graphic {
       //fill(multi[i]);
       //pos x , pos ,y size width , size height, start angle , got to this angle
       arc(ag.pos.x+100, ag.pos.y+100, diameter, diameter, lastAngle, lastAngle + radians(data[i]));
-      float cx = (ag.pos.x + 100 ) + sin(lastAngle + radians(data[i] *0.5f) + HALF_PI) * 85;
-      float cy = (ag.pos.y + 100) - cos(lastAngle + radians(data[i]*0.5f) + HALF_PI) *85;
+      float cx = (ag.pos.x + 100 ) + sin(lastAngle + radians(data[i] *0.5f) + HALF_PI) * 55;
+      float cy = (ag.pos.y + 100) - cos(lastAngle + radians(data[i]*0.5f) + HALF_PI) *55;
       textSize(8);
-      fill(255,0,0);
+      fill(255,255,255);
       text(country[i] ,cx , cy); 
 
       lastAngle += radians(data[i]); //this is for the second angle
@@ -168,7 +168,7 @@ class LifeDesc extends Graphic {
       //rectMode(CORNER);
       //theta +=0.05;
     }//end of for loop
-/*
+
     textSize(10);
     if (time<100) {
       text("Analyzing subject: Earth", ag.pos.x+5, ag.pos.y+10);
@@ -192,7 +192,7 @@ class LifeDesc extends Graphic {
       dtime=0;
     }
 
-*/
+
     //fill(255);
     //text(desc[0], ag.pos.x+70, ag.pos.y+100);
     //pushMatrix();

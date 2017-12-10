@@ -227,5 +227,11 @@ class TableFront extends GameObjects {
     fill(255);
     textSize(10);
     text("Aim Cannon", pos.x+1021, pos.y+75);
-  }
+    
+    //text above the sliders
+    fill(0);
+    text("OperatingSystem" , pos.x, pos.y+10);
+    
+    
+  }//end of render
 }//end of class

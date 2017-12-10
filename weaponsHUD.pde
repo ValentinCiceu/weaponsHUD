@@ -21,8 +21,12 @@ void setup() {
   go.add(cannon);
   circuit = new Circuit(138, 638, 0.08, 138, 594);
   go.add(circuit);
+  
+  
+  
+  
   aim = new Aimer(width/3, height/3, 5);
-  go.add(aim);
+  //go.add(aim);
   
   
   sliderPie = new SliderV(800,200 ,random(0.05, 5), 15, 135);
@@ -32,8 +36,8 @@ void setup() {
   graph = new DeathGraph((width/2)-100,10,random(0.5,4), 20 , 140);
   
   /**********The pie chart***********/
-  life = new LifeDesc((width/2), (height/2) - 100 , 0,150);
-  gr.add(life);
+  life = new LifeDesc((width/2), (height/2) - 100 , 0,100);
+  //gr.add(life);
   //gr.add(graph);
   //sliderV = new SliderV(200,250,1,10,75);
   //go.add(sliderV);
