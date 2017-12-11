@@ -1,6 +1,6 @@
 class AllGraph extends Graphic {
 
-  int chage = 0;
+  int change = 0;
 
   /*this class will be responsible fro diplaying all of the graphs and hud stuff on the screen*/
   AllGraph(float x, float y, float speed, float len, float tic) {
@@ -24,16 +24,17 @@ class AllGraph extends Graphic {
       graph.update(); 
       graph.pos.x = pos.x+65;
       graph.pos.y = pos.y ;
-    }
-
-    if (key=='2') {
+      println("1");
+    } else if (key=='2') {
       life.update();
-    }
-
-    if (key=='3') {
+      println("2");
+    } else if (key=='3') {
       aim.update();
+      println("3");
+    } else {
+      def.update();
+      println("No key");
     }
-
   }//end of update
 
   void render() {
@@ -43,13 +44,12 @@ class AllGraph extends Graphic {
     rect(pos.x, pos.y, 200, 150);
     if (key=='1') {
       graph.render();
-    }
-    if (key=='2') {
+    } else if (key=='2') {
       life.render();
-    }
-
-    if (key=='3') {
+    } else if (key=='3') {
       aim.render();
+    } else {
+      def.render();
     }
 
     //println(key);
@@ -71,8 +71,16 @@ class AllGraph extends Graphic {
     rect(pos.x+205, pos.y+45, 20, 20);
     if (key=='3') {
       fill(0, 255, 0);
-    } else{
-    fill(255,0,0);}
+    } else {
+      fill(255, 0, 0);
+    }
     rect(pos.x+205, pos.y+85, 20, 20);
+  //fo the default option
+    if (key>'3' ) {
+      fill(0, 255, 0);
+    } else {
+      fill(255, 0, 0);
+    }
+    rect(pos.x+205, pos.y+125, 20, 20);
   }//end of render
 }//end of class

@@ -22,9 +22,9 @@ void setup() {
   circuit = new Circuit(138, 638, 0.08, 138, 594);
   go.add(circuit);
   
+  /**for the graphs**/
   
-  
-  
+  //the aimer
   aim = new Aimer(width/3, height/3, 5);
   //go.add(aim);
   
@@ -43,7 +43,9 @@ void setup() {
   //go.add(sliderV);
   // slider = new Slider(200,250,1,100,10);
   //go.add(slider);
-
+ 
+  def = new Default((width/2)+155 , (height/2) + 280 , 1 , 100);
+  //gr.add(def);
   //this is for the random number generator
   for (int i=0; i<3; i++) {
     println("die2:  " + die2[i]);  //this will print out the 3 dice number
@@ -104,6 +106,7 @@ Aimer aim;
 Slider slider;
 SliderV sliderPie;
 SliderV sliderV;
+Default def;
 boolean test2=true;
 
 ///variables for the colour sequence\\\\\\\\\\\\\\

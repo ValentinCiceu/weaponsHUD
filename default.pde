@@ -37,13 +37,14 @@ class Default extends Graphic {
   }
 
   void render() {
+    textAlign(CENTER);
     stroke(0, 255, 0);
     noFill();
     //the main circle
     ellipse(pos.x, pos.y, diameter, diameter);
 
     //the rings for the circle (like in any radar
-    for (int i=0; i < 9; i++) {   
+    for (int i=0; i < 4; i++) {   
       ellipse(pos.x, pos.y, shift +i*30, shift + i * 30 );
     }
     //the multiple following lines
@@ -56,10 +57,10 @@ class Default extends Graphic {
 
     fill(255, 0, 0);
     for (int i=0; i<100; i++) {
-      float cx = 250 + sin(borderTheta * i) *133;
-      float cy = 250 - cos(borderTheta * i)* 133;
-      float cx2 = 250 + sin(borderTheta * i) *125;
-      float cy2 = 250 - cos(borderTheta * i)* 125;
+      float cx = pos.x + sin(borderTheta * i) *((diameter/2) + 8); //133
+      float cy = pos.y - cos(borderTheta * i)* ((diameter/2) + 8);//133
+      float cx2 = pos.x + sin(borderTheta * i) *diameter/2;//125
+      float cy2 = pos.y - cos(borderTheta * i)* diameter/2;//125
       //ellipse(cx,cy ,10 , 10);
       line(cx, cy, cx2, cy2);
     }
@@ -67,11 +68,11 @@ class Default extends Graphic {
 
     //the cross airs of 8 main points of a unit circle
     for (int i=0; i<8; i++) {
-      float pox = 250 + sin(aTheta * i ) *125;
-      float poy = 250 - cos(aTheta * i) *125;
-      line(250, 250, pox, poy);
+      float pox = pos.x + sin(aTheta * i ) *diameter/2;//125
+      float poy = pos.y - cos(aTheta * i) *diameter/2;//125
+      line(pos.x, pos.y, pox, poy);
       fill(255);
-      text(values[i], 250 + sin(aTheta * i ) *115, 250 - cos(aTheta * i) *115);
+      text(values[i], pos.x + sin(aTheta * i ) *(diameter/2), pos.y - cos(aTheta * i) *(diameter/2) );//115 115
     }
   }//end of render
 }
