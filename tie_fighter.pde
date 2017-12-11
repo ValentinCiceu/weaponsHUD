@@ -1,33 +1,25 @@
 
 class Tie extends GameObjects {
 
-  float tieX=random(width, width+5000);
-  float tieY=random(0,500);
-  //float tieX=450;
-  //float tieY=141;
-  float tieSpeed=-4;
-  //float tieSpeed;
-  float tieCollisionX=230;
-  float tieCollisionY=141;
+
+
+  //float tieCollisionY=141;
   float tieCollisionWidth=20;
   float tieCollisionHeight=82;
   //controllers
-  int X=0;
-  int s=1;
 
   float theta;
   float choose;
 
-  Tie(float x , float y , float speed) {
-    super(x,y,speed);
-   // pos = new PVector(random(width , width + 5000) , random(0,table.pos.y));
+  Tie(float x, float y, float speed) {
+    super(x, y, speed);
+    // pos = new PVector(random(width , width + 5000) , random(0,table.pos.y));
     theta=0;
     choose=random(-1, 0);
-   
   }
 
   void update() {
-    tieCollisionX+=speed;
+
     pos.x+=speed;
 
 
@@ -36,11 +28,10 @@ class Tie extends GameObjects {
 
     if (pos.y<=-100) {  ///controller
       // pos.x=random(width, width+5000);
-      pos.x=width;
-      tieCollisionX=width;
-      tieCollisionY=random(height);
+      pos.x=random(width+200, width+800);
+
       //tieCollisionY=141;
-      pos.y=random(0 , table.pos.y-100);
+      pos.y=random(0, table.pos.y-100);
       //pos.y=141;
       speed=random(-10, -3);  //first num was 6
       //speed=-0.5;
@@ -50,18 +41,17 @@ class Tie extends GameObjects {
 
     if (pos.y>height+100) { //controller 
       // pos.x=random(width, width+5000);
-      pos.x=width;
-      tieCollisionX=width;
-      tieCollisionY=random(height);
+      pos.x=random(width+200, width+800);
+
       //tieCollisionY=141;
-      pos.y=random(0 , table.pos.y-100);
+      pos.y=random(0, table.pos.y-100);
       //pos.y=141;
       speed=random(-10, -3);  //first num was 6
       //speed=-0.5;
       choose=random(-5, 0);
     }
 
-    if (pos.x<=width/3.5) {
+    if (pos.x<=width/3.5) { //pull the fighters upwards
 
       pos.y=(pos.y+(choose)*cos(theta));
     }
@@ -71,27 +61,15 @@ class Tie extends GameObjects {
     //Tie controller
     if (pos.x<=-50) { //if outside of the screen
       // pos.x=random(width, width+5000);
-      pos.x=width;
-      tieCollisionX=width;
-      tieCollisionY=random(height);
+      pos.x=random(width+200, width+800);
+
       //tieCollisionY=141;
-      pos.y=random(0 , table.pos.y-100);
+      pos.y=random(0, table.pos.y-100);
       //pos.y=141;
       speed=random(-10, -3);  //first num was 6
       //speed=-0.5;
       choose=random(-5, 0);
     }
-
-    //collision with the fighter// //wings//
-
-
-
-    //After processing crashed on me, the collision point went wonky a bit
-    //and so the normal detection that I did on first attempt
-    //Does not work anymore and so I had to alter the code by using the -95 bit
-    // which I do not fully understand as to why it works now and that te old version stopped
-    //working
-    //Collision of the triangle part of the fighter.
   }
 
 
@@ -232,12 +210,4 @@ class Tie extends GameObjects {
     vertex(pos.x-8, pos.y+47);//v4
     endShape();
   }
-  /*
-  so far the ties are done. The collisions, movment, everything works fine
-   I'm thinking of adding some random manouvers to the tie fighters
-   If they get to a certain range they would randomly pull up or down at a certain angle.
-   thinking of adding this towards the end of this week.
-   Two more things i would like to add are shooting back and explosions.
-   Again maybe start on this towards the end of this week.
-   */
 }

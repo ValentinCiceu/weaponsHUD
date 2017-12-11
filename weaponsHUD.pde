@@ -80,7 +80,7 @@ void setup() {
   
   //adding the tie fighter
   for(int i=0; i< 2; i++){
-    tie = new Tie(random(width , width+5000) , random(0 , table.pos.y - 100) , random(-10,-3));
+    tie = new Tie(random(width+200 , width+800) , random(0 , table.pos.y - 100) , random(-10,-3));
     go.add(tie);
   }
 
