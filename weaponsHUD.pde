@@ -31,7 +31,7 @@ void setup() {
   
   sliderPie = new SliderV(800,200 ,random(0.05, 5), 15, 135);
   //ag = new AllGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
-  ag = new AllGraph((width/2)+50,height - 150,random(0.005 , 2) , 20 , 400);
+  ag = new AllGraph((width/2)+50,height - 150,1 , 20 , 400);
   gr.add(ag);
   graph = new DeathGraph((width/2)-100,10,random(0.5,4), 20 , 140);
   
