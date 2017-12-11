@@ -1,6 +1,9 @@
 
 PImage earth;
 PImage earthR;
+//image sprite sheet for th explosion
+PImage[] explosion = new PImage[29];
+boolean explode = false;
 //add an array for PImage to do an explosion animation
 void setup() {
   //fullScreen();
@@ -8,6 +11,10 @@ void setup() {
 
   earth = loadImage("earth.png");
   earthR = loadImage("digitEarth.png");
+  //loading the sprite sheet 
+  for (int i = 1; i<=explosion.length-1; i++) {
+    explosion[i]=loadImage("ex"+i+".png"); //loading all the images
+  }
 
   println("Widht:" + width, "Height: " +height);
 
@@ -21,30 +28,30 @@ void setup() {
   go.add(cannon);
   circuit = new Circuit(138, 638, 0.08, 138, 594);
   go.add(circuit);
-  
+
   /**for the graphs**/
-  
+
   //the aimer
   aim = new Aimer(width/3, height/3, 5);
   //go.add(aim);
-  
-  
-  sliderPie = new SliderV(800,200 ,random(0.05, 5), 15, 135);
+
+
+  sliderPie = new SliderV(800, 200, random(0.05, 5), 15, 135);
   //ag = new AllGraph((width/2)-100,10,random(0.005 , 2) , 20 , 400);
-  ag = new AllGraph((width/2)+50,height - 150,1 , 20 , 400);
+  ag = new AllGraph((width/2)+50, height - 150, 1, 20, 400);
   gr.add(ag);
-  graph = new DeathGraph((width/2)-100,10,random(0.5,4), 20 , 140);
-  
+  graph = new DeathGraph((width/2)-100, 10, random(0.5, 4), 20, 140);
+
   /**********The pie chart***********/
-  life = new LifeDesc((width/2), (height/2) - 100 , 0,100);
+  life = new LifeDesc((width/2), (height/2) - 100, 0, 100);
   //gr.add(life);
   //gr.add(graph);
   //sliderV = new SliderV(200,250,1,10,75);
   //go.add(sliderV);
   // slider = new Slider(200,250,1,100,10);
   //go.add(slider);
- 
-  def = new Default((width/2)+155 , (height/2) + 280 , 1 , 100);
+
+  def = new Default((width/2)+155, (height/2) + 280, 1, 100);
   //gr.add(def);
   //this is for the random number generator
   for (int i=0; i<3; i++) {
@@ -65,7 +72,7 @@ void setup() {
     sliderV =  new SliderV(table.pos.x + (i * 10), height - 75, random(0.05, 5), 10, 75);
     gr.add(sliderV);
   }
-  
+
   loadData();
 }//end of setup
 //all of the classes.
@@ -74,18 +81,18 @@ ArrayList<Graphic> gr = new ArrayList<Graphic>();
 //an arraylist dedicated for the data
 ArrayList<Data>data = new ArrayList<Data>();
 Data da;
-void loadData(){
- Table table = loadTable("cafe.csv" , "header"); 
-  for(TableRow r : table.rows()){
+void loadData() {
+  Table table = loadTable("cafe.csv", "header"); 
+  for (TableRow r : table.rows()) {
     //to retrieve all the data
-   da = new Data(r);
-   data.add(da);
-   //Data d = new Data(r);
-   //data.add(d);
-   //bug here. added so many objects
-   //d.update(); 
-   //d.render();
-   //println(d);
+    da = new Data(r);
+    data.add(da);
+    //Data d = new Data(r);
+    //data.add(d);
+    //bug here. added so many objects
+    //d.update(); 
+    //d.render();
+    //println(d);
   }
   da.update(); //adding the object just once
 }
@@ -149,30 +156,35 @@ float earthY=0f;
 
 //to load the data for the population
 
-  
-  
 
 
+//for the animation
+int change = 1;
 
 void draw() {
   background(0);
+  if(!explode){
   image(earth, earthX, earthY); //main earth
+  }
+  
+  
+  
   for (int i=0; i<go.size(); i++) { //this will loop the update and render of GameObjects
     GameObjects g=go.get(i);
     g.update();
     g.render();
   }
-  
-  for(int i =0; i < gr.size(); i++){
-   Graphic graphic = gr.get(i);
-   graphic.update();
-   graphic.render();
-  }
-  
-  sequence();
-  
 
-  
+  for (int i =0; i < gr.size(); i++) {
+    Graphic graphic = gr.get(i);
+    graphic.update();
+    graphic.render();
+  }
+
+  sequence();
+
+
+
   //temp border
   fill(0);
   pushMatrix();
@@ -180,13 +192,27 @@ void draw() {
   popMatrix();
   rect(1114, 550, 14, 152);
   //image(earth,earthX,earthY); //main earth
-  if(counter >=3){ //when user succeeds in the sequnce thingy show earth hud
-  image(earthR, 500, 562); //eath hud on table
+  if (counter >=3) { //when user succeeds in the sequnce thingy show earth hud
+    image(earthR, 500, 562); //eath hud on table
   }
   //main laser hits earth
   if (dist(cannon.pos.x+-70, cannon.pos.y+1381, earthX, earthY)<100) {
     println("Hit");
   }
-
+  //when the fire button is pressed
+if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
+  explode = true;
+}
+if(explode){
+  if(frameCount%30==0 && change < 28){
+   change++; 
+  }
+  image(explosion[change],earthX,earthY , 100 , 100);
+}
+if(change >= 27){
+  change=27;
+}
   //println("The postion of end laser is: ",cannon.pos.x+-70, cannon.pos.y+1381);
 }
+
+//1708
