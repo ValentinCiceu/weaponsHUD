@@ -5,12 +5,17 @@ PImage earthR;
 PImage[] explosion = new PImage[29];
 boolean explode = false;
 //add an array for PImage to do an explosion animation
+
+//image for the tie fighter
+PImage galactic;
+
 void setup() {
   //fullScreen();
   size(1366, 700);
 
   earth = loadImage("earth.png");
   earthR = loadImage("digitEarth.png");
+  galactic= loadImage("galactic2.png");
   //loading the sprite sheet 
   for (int i = 1; i<=explosion.length-1; i++) {
     explosion[i]=loadImage("ex"+i+".png"); //loading all the images
@@ -72,6 +77,12 @@ void setup() {
     sliderV =  new SliderV(table.pos.x + (i * 10), height - 75, random(0.05, 5), 10, 75);
     gr.add(sliderV);
   }
+  
+  //adding the tie fighter
+  for(int i=0; i< 2; i++){
+    tie = new Tie(random(width , width+5000) , random(0 , table.pos.y - 100) , random(-10,-3));
+    go.add(tie);
+  }
 
   loadData();
 }//end of setup
@@ -114,6 +125,8 @@ Slider slider;
 SliderV sliderPie;
 SliderV sliderV;
 Default def;
+Tie tie;
+
 boolean test2=true;
 
 ///variables for the colour sequence\\\\\\\\\\\\\\
@@ -164,6 +177,7 @@ color white = color(0);
 color black = color(0);
 color newc;
 float rate;
+
 void draw() {
   background(newc);
   newc= lerpColor(white ,black , rate);

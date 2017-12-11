@@ -2,8 +2,8 @@ class System extends GameObjects {
   //drawing out the stars
   //color c1 = color(255, 255, 255);
   //color c2 = color(0, 0, 0);
-  color c1;// = color(255, 255, 255);
-  color c2 ;//= color(0, 0, 0);
+  color c1 = color(255, 255, 255);
+  color c2 = color(0, 0, 0);
   color newc;
   float change=0;
   float cspeed;
@@ -13,8 +13,8 @@ class System extends GameObjects {
     super(x, y, speed);
     cspeed=random(0.01, 0.0005);
     choose=random(0.0005, 0.01);
-    c1 = color(random(0,255),random(0,255),random(0,255));//raindbow stars
-    c2 = color(random(0,255),random(0,255),random(0,255));//rainbow stars
+   // c1 = color(random(0,255),random(0,255),random(0,255));//raindbow stars
+    //c2 = color(random(0,255),random(0,255),random(0,255));//rainbow stars
   }
 
   void update() {
