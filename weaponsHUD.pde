@@ -1,3 +1,11 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+Minim minim;
+AudioPlayer explosive;
 
 PImage earth;
 PImage earthR;
@@ -12,7 +20,7 @@ PImage galactic;
 void setup() {
   //fullScreen();
   size(1366, 700);
-
+  //loading the images
   earth = loadImage("earth.png");
   earthR = loadImage("digitEarth.png");
   galactic= loadImage("galactic2.png");
@@ -20,6 +28,10 @@ void setup() {
   for (int i = 1; i<=explosion.length-1; i++) {
     explosion[i]=loadImage("ex"+i+".png"); //loading all the images
   }
+
+  //loading the sounds
+  minim =new Minim(this);
+  explosive = minim.loadFile("rock_breaking.wav");
 
   println("Widht:" + width, "Height: " +height);
 
@@ -77,10 +89,10 @@ void setup() {
     sliderV =  new SliderV(table.pos.x + (i * 10), height - 75, random(0.05, 5), 10, 75);
     gr.add(sliderV);
   }
-  
+
   //adding the tie fighter
-  for(int i=0; i< 2; i++){
-    tie = new Tie(random(width+200 , width+800) , random(0 , table.pos.y - 100) , random(-10,-3));
+  for (int i=0; i< 2; i++) {
+    tie = new Tie(random(width+200, width+800), random(0, table.pos.y - 100), random(-10, -3));
     go.add(tie);
   }
 
@@ -180,9 +192,11 @@ float rate;
 
 void draw() {
   background(newc);
-  newc= lerpColor(white ,black , rate);
+  newc= lerpColor(white, black, rate);
   if (!explode) {
     image(earth, earthX, earthY); //main earth
+    //play the explosion
+
   }
   //when the fire button is pressed
   if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
@@ -191,6 +205,8 @@ void draw() {
   if (explode) {
     if (frameCount%30==0 && change < 28) {
       change++;
+      explosive.setGain(-5);
+      explosive.play();
     }
     white = color(255);
     image(explosion[change], earthX, earthY, 100, 100);
