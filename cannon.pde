@@ -107,9 +107,9 @@ class Cannon extends GameObjects {
 
 
   void render() {
-    if (test2) {///this proves that a global boolean will work in classes.
-      rect(pos.x, pos.y, 100, 100);
-    }
+    //if (test2) {///this proves that a global boolean will work in classes.
+    //  rect(pos.x, pos.y, 100, 100);
+    //}
 
     pushMatrix();
     //rectMode(CENTER);

@@ -160,15 +160,34 @@ float earthY=0f;
 
 //for the animation
 int change = 1;
-
+color white = color(0);
+color black = color(0);
+color newc;
+float rate;
 void draw() {
-  background(0);
-  if(!explode){
-  image(earth, earthX, earthY); //main earth
+  background(newc);
+  newc= lerpColor(white ,black , rate);
+  if (!explode) {
+    image(earth, earthX, earthY); //main earth
   }
-  
-  
-  
+  //when the fire button is pressed
+  if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
+    explode = true;
+  }
+  if (explode) {
+    if (frameCount%30==0 && change < 28) {
+      change++;
+    }
+    white = color(255);
+    image(explosion[change], earthX, earthY, 100, 100);
+    rate+=0.005;
+  }
+
+  if (change >= 27) {
+    change=27;
+  }
+
+
   for (int i=0; i<go.size(); i++) { //this will loop the update and render of GameObjects
     GameObjects g=go.get(i);
     g.update();
@@ -199,19 +218,7 @@ void draw() {
   if (dist(cannon.pos.x+-70, cannon.pos.y+1381, earthX, earthY)<100) {
     println("Hit");
   }
-  //when the fire button is pressed
-if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
-  explode = true;
-}
-if(explode){
-  if(frameCount%30==0 && change < 28){
-   change++; 
-  }
-  image(explosion[change],earthX,earthY , 100 , 100);
-}
-if(change >= 27){
-  change=27;
-}
+
   //println("The postion of end laser is: ",cannon.pos.x+-70, cannon.pos.y+1381);
 }
 
