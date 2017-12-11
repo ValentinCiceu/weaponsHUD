@@ -18,14 +18,16 @@ class Cannon extends GameObjects {
   boolean destroy =false;
 
   boolean endRotation = false;
-  
+
   //for the aiming class
   boolean canAim = false;
-  
+
   float destroyTime;
   float destroyTimer=0;
 
-//do a lerp to get the "percentage status for the text in AllGraphs
+  float status;
+ // String myStatus = nf(status , 3,3);
+  //do a lerp to get the "percentage status for the text in AllGraphs
 
 
   Cannon(float x, float y, float speed) {
@@ -49,10 +51,10 @@ class Cannon extends GameObjects {
 
     if (ready && dist(mouseX, mouseY, table.pos.x+1044, table.pos.y+75)<table.buttonR/2 && !endRotation) {
       println("im in");
-      if(mousePressed){
+      if (mousePressed) {
         println("im pressed");
-      aim=true;
-      canAim = true;
+        aim=true;
+        canAim = true;
       }
     } else {
       aim =false;
@@ -99,6 +101,8 @@ class Cannon extends GameObjects {
     destroyTime+=destroyTimer;
 
     //println(destroy);
+    status= map(growth, 0, 297, 0, 100); //to get the percentage
+    println("Status: " + status);
   }//end of update
 
 
@@ -119,7 +123,8 @@ class Cannon extends GameObjects {
     //this will grow/charge the laser
     fill(255);
     rect(pos.x+27, y+297, 5, growth);
-
+    //println("Growth: " + growth);
+    //max growth is 297
     //drawing the tri laser hingy for the cannon (like in the death star)
     stroke(0, 255, 0);
     if (triTime >=150 && destroyTime <300) {
@@ -140,6 +145,5 @@ class Cannon extends GameObjects {
     }
     popMatrix();
     //do the death star laser
-
   }
 }

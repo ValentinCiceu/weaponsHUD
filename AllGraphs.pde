@@ -115,7 +115,7 @@ class AllGraph extends Graphic {
       text("Calculating co-ordinates for laser" , pos.x , pos.y+55);}
       if(cannon.endRotation==true){
       text("Charging laser" , pos.x , pos.y + 75);//
-      text("Status: " , pos.x , pos.y + 95);
+      text("Status: "  + cannon.status + "%", pos.x , pos.y + 95);
       }
       
       
