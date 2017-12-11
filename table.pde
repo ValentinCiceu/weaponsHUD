@@ -210,8 +210,10 @@ class TableFront extends GameObjects {
     }//end of circuit loop
 
     //this will be the button to fire the deat laser
-
-    fill(255, 0, 0);
+    if(cannon.triTime >=200 && cannon.destroyTime <300){
+      fill(0,255,0);
+    }else{
+    fill(255, 0, 0);}
     stroke(0);
     ellipse(pos.x+405, pos.y+75, buttonR, buttonR);
     fill(255, 255, 255);
