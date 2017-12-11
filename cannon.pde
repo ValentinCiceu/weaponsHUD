@@ -25,6 +25,8 @@ class Cannon extends GameObjects {
   float destroyTime;
   float destroyTimer=0;
 
+//do a lerp to get the "percentage status for the text in AllGraphs
+
 
   Cannon(float x, float y, float speed) {
     super(x, y, speed);

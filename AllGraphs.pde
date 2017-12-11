@@ -80,6 +80,7 @@ class AllGraph extends Graphic {
     } else if (key=='3') {
       aim.render();
       //to display a message on the displayer
+      if(counter !=3){
       textSize(12);
       textAlign(CENTER);
       fill(newc);
@@ -100,6 +101,27 @@ class AllGraph extends Graphic {
       if (time>150) {
         text("To locate target!", pos.x +100, pos.y + 55);
       }
+      
+      }//end of counter statment
+      
+      
+      
+      //when the aimer points towards earth
+      if(counter >=3){
+      text("Target Located!" , pos.x + 100 , pos.y+15);
+      text("Displaying Subject on main screen" , pos.x , pos.y + 35);
+      //if you press ther aim button
+      if(cannon.canAim==true){
+      text("Calculating co-ordinates for laser" , pos.x , pos.y+55);}
+      if(cannon.endRotation==true){
+      text("Charging laser" , pos.x , pos.y + 75);//
+      text("Status: " , pos.x , pos.y + 95);
+      }
+      
+      
+      
+      }
+      
     } else {
       def.render();
     }

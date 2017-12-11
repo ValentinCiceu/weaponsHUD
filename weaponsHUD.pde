@@ -180,8 +180,9 @@ void draw() {
   popMatrix();
   rect(1114, 550, 14, 152);
   //image(earth,earthX,earthY); //main earth
+  if(counter >=3){ //when user succeeds in the sequnce thingy show earth hud
   image(earthR, 500, 562); //eath hud on table
-
+  }
   //main laser hits earth
   if (dist(cannon.pos.x+-70, cannon.pos.y+1381, earthX, earthY)<100) {
     println("Hit");
