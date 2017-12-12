@@ -9,6 +9,8 @@ Minim minim;
 AudioPlayer explosive;
 AudioPlayer section;
 AudioPlayer back; //this is the background ambiance
+float sound;
+float soundRate = 1.5f;
 PImage earth;
 PImage earthR;
 //image sprite sheet for th explosion
@@ -26,7 +28,7 @@ void setup() {
   earth = loadImage("earth.png");
   earthR = loadImage("digitEarth.png");
   galactic= loadImage("galactic2.png");
- 
+
   //loading the sprite sheet 
   for (int i = 1; i<=explosion.length-1; i++) {
     explosion[i]=loadImage("ex"+i+".png"); //loading all the images
@@ -37,7 +39,7 @@ void setup() {
   explosive = minim.loadFile("rock_breaking.wav");
   section= minim.loadFile("change.wav");
   back = minim.loadFile("amb.wav");
-  
+
   println("Widht:" + width, "Height: " +height);
 
   for (int i=0; i< 1500; i++) { //draw 1000 stars on the screen.
@@ -201,7 +203,6 @@ void draw() {
   if (!explode) {
     image(earth, earthX, earthY); //main earth
     //play the explosion
-
   }
   //when the fire button is pressed
   if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
@@ -253,15 +254,25 @@ void draw() {
   if (dist(cannon.pos.x+-70, cannon.pos.y+1381, earthX, earthY)<100) {
     println("Hit");
   }
-  back.play();
+
+  //audio controller
+  sound+=soundRate;
+  back.setGain(-10);
+  if (sound >=0) {
+
+    back.play();
+  }
+  if (sound >10000 && sound <10005) {
+    back.rewind();
+    sound=0;
+  }
 }
 
-void keyReleased(){
- if(key >='1' && key <='9'){
-  section.rewind();
-  section.play();
- }
-  
+void keyReleased() {
+  if (key >='1' && key <='9') {
+    section.rewind();
+    section.play();
+  }
 }
 
 //1708
