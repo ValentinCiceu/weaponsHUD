@@ -74,5 +74,6 @@ class Default extends Graphic {
       fill(255);
       text(values[i], pos.x + sin(aTheta * i ) *(diameter/2), pos.y - cos(aTheta * i) *(diameter/2) );//115 115
     }
+   
   }//end of render
 }

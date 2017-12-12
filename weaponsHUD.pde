@@ -102,6 +102,8 @@ void setup() {
     tie = new Tie(random(width+200, width+800), random(0, table.pos.y - 100), random(-10, -3));
     go.add(tie);
   }
+  back.setGain(-10);
+  back.loop();
   loadData();
 }//end of setup
 //all of the classes.
@@ -257,14 +259,14 @@ void draw() {
 
   //audio controller
   sound+=soundRate;
-  back.setGain(-10);
+ // back.setGain(-10);
   if (sound >=0) {
 
-    back.play();
+    //back.play();
   }
-  if (sound >10000 && sound <10005) {
-    back.rewind();
-    sound=0;
+  if (sound >1000 && sound <1005) {
+    //back.rewind();
+//sound=0;
   }
 }
 

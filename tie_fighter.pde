@@ -1,6 +1,11 @@
 
 class Tie extends GameObjects {
-
+/*
+The tie fighter is from my previous assignment i done last ear called Star Battle
+I re-did my code except mad it a bit more neater and reduced lines without losing 
+functionallity. It's an homage to the upcoming star wars movie and an homage to 
+my assignment last year which i have fond memories with :)
+*/
 
 
   //float tieCollisionY=141;

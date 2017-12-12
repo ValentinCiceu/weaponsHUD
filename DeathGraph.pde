@@ -48,6 +48,7 @@ class DeathGraph extends Graphic {
       speed = random(0.05, 1);
     }
 
+    println("death" + deathFor.y);
     speedD = speed;
     if (deathPos.y > tic) {
       deathPos.y = tic;
@@ -85,7 +86,11 @@ class DeathGraph extends Graphic {
     //  text("WAR!", pos.x+65, pos.y);
     //}
 
-
+    
+    if (explode) { //when earth is destroyed set the rate to 0. i.e. there is no more rate as there are no more living things
+      myPos.y=0;
+      deathPos.y=0;
+    }
     //to map the scaling of the death graph for the for loop to print out all 
     //the values in porportion with the size of the graph
     mapper = map(tic, 0, 200, 0, 10);
