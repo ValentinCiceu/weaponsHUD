@@ -5,7 +5,9 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 Minim minim;
+//for the explosion
 AudioPlayer explosive;
+
 
 PImage earth;
 PImage earthR;
@@ -24,6 +26,7 @@ void setup() {
   earth = loadImage("earth.png");
   earthR = loadImage("digitEarth.png");
   galactic= loadImage("galactic2.png");
+ 
   //loading the sprite sheet 
   for (int i = 1; i<=explosion.length-1; i++) {
     explosion[i]=loadImage("ex"+i+".png"); //loading all the images
@@ -32,7 +35,8 @@ void setup() {
   //loading the sounds
   minim =new Minim(this);
   explosive = minim.loadFile("rock_breaking.wav");
-
+  
+  
   println("Widht:" + width, "Height: " +height);
 
   for (int i=0; i< 1500; i++) { //draw 1000 stars on the screen.
@@ -191,12 +195,12 @@ color newc;
 float rate;
 
 void draw() {
+
   background(newc);
   newc= lerpColor(white, black, rate);
   if (!explode) {
     image(earth, earthX, earthY); //main earth
     //play the explosion
-
   }
   //when the fire button is pressed
   if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
@@ -249,7 +253,8 @@ void draw() {
     println("Hit");
   }
 
-  //println("The postion of end laser is: ",cannon.pos.x+-70, cannon.pos.y+1381);
 }
+
+
 
 //1708
