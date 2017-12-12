@@ -50,8 +50,7 @@ abstract class Graphic {
   PVector pos;
   PVector forward;
   float len;
-  float tic;
-  float filler;
+  float tic;  float filler;
 
   PVector myPos; //position for the slider.
   PVector point;//point to go to
@@ -87,7 +86,7 @@ I also used 3 arrayLists, 2 for the super class and 1 for the data.
 The data is a csv file of the top 10 most populated countries in the world which is displayed using a pie chartin the displayer.
 
 
-## Features im proud of.
+## Features I'm proud of.
 1.The Slider that changes colour reletive to the position of the black bar as seen in the sketch and video. If the black bar is closer to the LFH then it goes green, RHS is red. I used the Lerp functions to achieve this.
 
 2.All the graphs, although it looks simple alot of thought went into this, especially integrating the data from a csv file to the pie chart. Which involved taking data from a class to another using a for loop 
