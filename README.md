@@ -1,10 +1,10 @@
 # weaponsHUD
 This is an assignment for computer sceince oop. I have to make a hud/interface using processing (language java). It can be anything as long as it shows creativity. 
 
-##Death Star
+## Death Star
 So I opted in making a simple version of the deathstar with some user inout and animation.
 
-##Contols
+## Contols
 1. The colour sequence
 Observe the 3 sequnce that appears on the right hand side of the screen. After the third red flash, press each square (using the left click on the mouse) that flashed red in order. If success all of the squares will go green including the aim button beside them.
 
@@ -14,7 +14,7 @@ There are two buttons on screen which the user can press. the first being the Ai
 3. Graphs.
 press the following button 1 , 2 , 3 or 4 on the keyboard and observe the Graphs on the displayer beside the aim button change to a different visual. You will also observe the red squares beside the Displayer go green on the representing graph.
 
-##The code
+## The code
 The direction I went was inheritence. Practically all class' in my sketch ar extended by a super class.
 I have 2 Super class'
 1.GameObjects
@@ -92,7 +92,8 @@ The data is a csv file of the top 10 most populated countries in the world which
 
 2.All the graphs, although it looks simple alot of thought went into this, especially integrating the data from a csv file to the pie chart. Which involved taking data from a class to another using a for loop 
 
-  ``` for (int i =0; i<da.popArr.length; i++) { //was data.length
+  ``` 
+  for (int i =0; i<da.popArr.length; i++) { //was data.length
       total = total + data[i];
     }
 ```
