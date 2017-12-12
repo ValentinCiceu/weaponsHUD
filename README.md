@@ -105,5 +105,5 @@ The data is a csv file of the top 10 most populated countries in the world which
 everytime you start a new sketch the order is completly differen as well. I'ts one of the first things i worked on when i started the assignment.
 
 # Video of assignment in work
-<a href = "https://youtu.be/ENDHavHsL2k" target = "blank"><img src = "http://img.youtube.com/VI/.https://youtu.be/ENDHavHsL2k/0.jpg" width = "240" height = "180" border = "10" /></a>
+[![YouTube](http://img.youtube.com/vi/ENDHavHsL2k/0.jpg)](https://www.youtube.com/watch?v=ENDHavHsL2k&feature=youtu.be)
 
