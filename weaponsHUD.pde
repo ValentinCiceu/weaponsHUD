@@ -7,8 +7,8 @@ import ddf.minim.ugens.*;
 Minim minim;
 //for the explosion
 AudioPlayer explosive;
-
-
+AudioPlayer section;
+AudioPlayer back; //this is the background ambiance
 PImage earth;
 PImage earthR;
 //image sprite sheet for th explosion
@@ -35,7 +35,8 @@ void setup() {
   //loading the sounds
   minim =new Minim(this);
   explosive = minim.loadFile("rock_breaking.wav");
-  
+  section= minim.loadFile("change.wav");
+  back = minim.loadFile("amb.wav");
   
   println("Widht:" + width, "Height: " +height);
 
@@ -99,7 +100,6 @@ void setup() {
     tie = new Tie(random(width+200, width+800), random(0, table.pos.y - 100), random(-10, -3));
     go.add(tie);
   }
-
   loadData();
 }//end of setup
 //all of the classes.
@@ -201,6 +201,7 @@ void draw() {
   if (!explode) {
     image(earth, earthX, earthY); //main earth
     //play the explosion
+
   }
   //when the fire button is pressed
   if (cannon.triTime >=200 && cannon.fire==true && cannon.inital ==true && mousePressed) {
@@ -252,9 +253,15 @@ void draw() {
   if (dist(cannon.pos.x+-70, cannon.pos.y+1381, earthX, earthY)<100) {
     println("Hit");
   }
-
+  back.play();
 }
 
-
+void keyReleased(){
+ if(key >='1' && key <='9'){
+  section.rewind();
+  section.play();
+ }
+  
+}
 
 //1708
